@@ -4,9 +4,23 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.risefintech.invoicechoice</groupId>
 	<artifactId>invoice-engine</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<packaging>jar</packaging>
 	<name>invoice-engine</name>
+	<url>http://invoicechoice.co/</url>
+
+	<developers>
+		<developer>
+			<name>Abhinab Kanrar</name>
+			<roles>
+				<role>Technical Architect</role>
+				<role>Tech Lead</role>
+			</roles>
+			<timezone>GMT+5:30</timezone>
+			<url>https://github.com/AbhinabKanrar</url>
+			<email>abhinabkanrar@gmail.com</email>
+		</developer>
+	</developers>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -18,18 +32,34 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<lombok.version>1.16.20</lombok.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-undertow</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 
@@ -41,6 +71,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
 
 </project>
